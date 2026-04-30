@@ -55,5 +55,9 @@ class PostController extends Controller
         $post->update($data);
         return to_route('post.index');
     }
-    public function destroy(string $id) {}
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return to_route('post.index');
+    }
 }
