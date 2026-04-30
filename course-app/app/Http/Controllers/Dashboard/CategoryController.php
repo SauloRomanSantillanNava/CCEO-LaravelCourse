@@ -43,5 +43,9 @@ class CategoryController extends Controller
         return to_route('category.index');
     }
 
-    public function destroy(string $id) {}
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        return to_route('category.index');
+    }
 }

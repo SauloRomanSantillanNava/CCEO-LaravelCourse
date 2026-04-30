@@ -32,6 +32,10 @@ Categorías Creadas
                             <td>
                                 <a class="text-blue-500 text-sm" href="{{ route('category.show', $category) }}">Ver</a>
                                 <a class="text-blue-500 text-sm" href="{{ route('category.edit', $category) }}">Editar</a>
+                                <form action="{{ route('category.destroy', $category ) }}" method="POST">
+                                    @method('delete')
+                                    <button class="text-blue-500 text-sm">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
