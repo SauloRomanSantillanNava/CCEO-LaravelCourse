@@ -30,9 +30,10 @@ class PostController extends Controller
         return to_route('post.index');
     }
 
-    public function show(string $id)
+    public function show(Post $post)
     {
-        return view('dashboard.post.show');
+
+        return view('dashboard.post.show', compact(['post']));
     }
 
     public function edit(string $id)
