@@ -52,7 +52,7 @@
                     <img 
                         src="{{ asset('uploads/posts/' . $post->image) }}" 
                         alt="{{ $post->title }}"
-                        class="rounded-xl shadow-md object-cover w-50 h-50"
+                        class="rounded-xl shadow-md object-cover w-48 h-48"
                     >
                     @else 
                     <p>Sin imagen</p>

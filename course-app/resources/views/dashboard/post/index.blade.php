@@ -36,7 +36,7 @@
                             <td class="px-4 py-3 text-sm text-gray-600">{{ $post->slug }}</td>
                             <td class="px-4 py-3 text-sm text-gray-600">{{ $post->description }}</td>
                             <td class="px-4 py-3 text-sm text-gray-600">
-                                {{ Str::limit($post->content, 50) }}
+                                {{ \Illuminate\Support\Str::limit($post->content, 50) }}
                             </td>
                             <td class="px-4 py-3 text-sm text-gray-600">{{ $post->image }}</td>
                             <td class="px-4 py-3">

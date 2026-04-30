@@ -17,9 +17,9 @@ class StoreRequest extends FormRequest
             'title' => 'required|min:5|max:500',
             'slug' => 'required|min:5|max:500|unique:posts',
             'content' => 'required|min:7',
-            'category_id' => 'required|integer',
+            'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required|min:7',
-            'posted' => 'required',
+            'posted' => 'required|in:yes,no',
         ];
     }
 }

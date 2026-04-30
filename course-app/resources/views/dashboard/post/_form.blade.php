@@ -43,10 +43,10 @@
         class="border border-gray-300 rounded-lg p-2" 
         name="category_id"
     >
-        @foreach($categories as $title => $id)
+        @foreach($categories as $id => $title )
             <option 
                 value="{{ $id }}"
-                {{ old('category_id', $post->category_id && $post->category_id) == $id ? 'selected' : '' }}
+                {{ old('category_id', $post->category_id) == $id ? 'selected' : '' }}
             >
                 {{ $title }}
             </option>

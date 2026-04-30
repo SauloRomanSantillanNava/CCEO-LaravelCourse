@@ -23,10 +23,10 @@ class UpdateRequest extends FormRequest
                 Rule::unique('posts')->ignore($this->post->id)
             ],
             'content' => 'required|min:7',
-            'category_id' => 'required|integer',
+            'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required|min:7',
-            'posted' => 'required',
-            'image' => 'mimes:jpg,jpeg,png,webp|max:10240'
+            'posted' => 'required|in:yes,no',
+            'image' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:10240'
         ];
     }
 }

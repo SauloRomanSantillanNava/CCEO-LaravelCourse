@@ -14,7 +14,7 @@
         <h1>Aplicación de Posts</h1>
     </header>
 
-    <main class="md:w-300 w-[95%] mx-auto py-10">
+    <main class="w-[95%] max-w-6xl mx-auto py-10">
         @yield('content')
     </main>
 
