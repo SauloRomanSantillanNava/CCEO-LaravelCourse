@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\UpdateRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -32,12 +32,16 @@ class CategoryController extends Controller
         return view('dashboard/category/show', compact(['category']));
     }
 
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        return view('dashboard/category/edit');
+        return view('dashboard/category/edit', compact(['category']));
     }
 
-    public function update(Request $request, string $id) {}
+    public function update(UpdateRequest $request, Category $category)
+    {
+        $category->update($request->validated());
+        return to_route('category.index');
+    }
 
     public function destroy(string $id) {}
 }

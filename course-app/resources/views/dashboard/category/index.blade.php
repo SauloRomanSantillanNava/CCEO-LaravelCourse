@@ -31,6 +31,7 @@ Categorías Creadas
                             <td class="px-4 py-3 text-sm text-gray-600">{{ $category->slug }}</td>
                             <td>
                                 <a class="text-blue-500 text-sm" href="{{ route('category.show', $category) }}">Ver</a>
+                                <a class="text-blue-500 text-sm" href="{{ route('category.edit', $category) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
