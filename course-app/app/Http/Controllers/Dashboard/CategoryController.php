@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Category\StoreRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,10 +16,15 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('dashboard/category/create');
+        $category = new Category();
+        return view('dashboard/category/create', compact(['category']));
     }
 
-    public function store(Request $request) {}
+    public function store(StoreRequest $request)
+    {
+        Category::create($request->validated());
+        return to_route('category.index');
+    }
 
     public function show(string $id)
     {
