@@ -7,15 +7,28 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index() {}
+    public function index()
+    {
+        return view('dashboard.post.index');
+    }
 
-    public function create() {}
+    public function create()
+    {
+        return view('dashboard.post.create');
+    }
+
 
     public function store(Request $request) {}
 
-    public function show(string $id) {}
+    public function show(string $id)
+    {
+        return view('dashboard.post.show');
+    }
 
-    public function edit(string $id) {}
+    public function edit(string $id)
+    {
+        return view('dashboard.post.edit');
+    }
 
     public function update(Request $request, string $id) {}
 

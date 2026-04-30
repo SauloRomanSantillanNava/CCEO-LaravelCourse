@@ -7,15 +7,27 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index() {}
+    public function index()
+    {
+        return view('dashboard/category/index');
+    }
 
-    public function create() {}
+    public function create()
+    {
+        return view('dashboard/category/create');
+    }
 
     public function store(Request $request) {}
 
-    public function show(string $id) {}
+    public function show(string $id)
+    {
+        return view('dashboard/category/show');
+    }
 
-    public function edit(string $id) {}
+    public function edit(string $id)
+    {
+        return view('dashboard/category/edit');
+    }
 
     public function update(Request $request, string $id) {}
 
