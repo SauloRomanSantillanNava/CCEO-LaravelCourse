@@ -11,7 +11,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('dashboard/category/index');
+        $categories = Category::paginate(3);
+        return view('dashboard/category/index', compact(['categories']));
     }
 
     public function create()
@@ -26,9 +27,9 @@ class CategoryController extends Controller
         return to_route('category.index');
     }
 
-    public function show(string $id)
+    public function show(Category $category)
     {
-        return view('dashboard/category/show');
+        return view('dashboard/category/show', compact(['category']));
     }
 
     public function edit(string $id)
