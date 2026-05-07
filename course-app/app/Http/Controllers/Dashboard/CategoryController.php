@@ -3,33 +3,49 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\UpdateRequest;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view('dashboard/category/index');
+        $categories = Category::paginate(3);
+        return view('dashboard/category/index', compact(['categories']));
     }
 
     public function create()
     {
-        return view('dashboard/category/create');
+        $category = new Category();
+        return view('dashboard/category/create', compact(['category']));
     }
 
-    public function store(Request $request) {}
-
-    public function show(string $id)
+    public function store(StoreRequest $request)
     {
-        return view('dashboard/category/show');
+        Category::create($request->validated());
+        return to_route('category.index');
     }
 
-    public function edit(string $id)
+    public function show(Category $category)
     {
-        return view('dashboard/category/edit');
+        return view('dashboard/category/show', compact(['category']));
     }
 
-    public function update(Request $request, string $id) {}
+    public function edit(Category $category)
+    {
+        return view('dashboard/category/edit', compact(['category']));
+    }
 
-    public function destroy(string $id) {}
+    public function update(UpdateRequest $request, Category $category)
+    {
+        $category->update($request->validated());
+        return to_route('category.index');
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        return to_route('category.index');
+    }
 }
